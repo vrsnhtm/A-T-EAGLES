@@ -49,15 +49,15 @@ export default function Hero() {
           </span>
 
           <h1 className="mt-6 text-4xl font-extrabold leading-[1.1] tracking-tight text-navy sm:text-5xl">
-            Hassle-free{" "}
+            Hassle-Free{" "}
             <span className="relative whitespace-nowrap">
-              <span className="relative z-10">BIR tax filing</span>
+              <span className="relative z-10">BIR tax Filing</span>
               <span
                 aria-hidden="true"
                 className="absolute inset-x-0 bottom-1 z-0 h-2.5 rounded-sm bg-gold/40"
               />
             </span>
-            , and bookkeeping for Philippine businesses.
+            , and Bookkeeping for Philippine Businesses
           </h1>
 
           <p className="mt-6 max-w-xl text-base leading-relaxed text-slate-600 sm:text-lg">
@@ -75,7 +75,7 @@ export default function Hero() {
               href="#services"
               className="btn border border-navy/15 bg-white text-navy hover:border-navy/35 hover:bg-white"
             >
-              Explore our services
+              Explore our Services
             </a>
           </div>
 
@@ -93,10 +93,10 @@ export default function Hero() {
         <div className="relative">
           <div className="rounded-2xl bg-navy p-7 text-white shadow-banner sm:p-9">
             <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-gold">
-              Compliance snapshot
+              Compliance Snapshot
             </p>
             <h2 className="mt-3 text-xl font-bold leading-snug text-white sm:text-2xl">
-              Your filings, mapped and monitored for the whole year.
+              Your Filings, Mapped and Monitored for the Whole Year.
             </h2>
 
             <ul className="mt-6 space-y-4">
@@ -115,7 +115,7 @@ export default function Hero() {
                 <dt className="text-[11px] uppercase tracking-wide text-slate-300">
                   Response time
                 </dt>
-                <dd className="mt-1 text-lg font-bold text-gold">1 business day</dd>
+                <dd className="mt-1 text-lg font-bold text-gold">1 Business Day</dd>
               </div>
               <div>
                 <dt className="text-[11px] uppercase tracking-wide text-slate-300">
