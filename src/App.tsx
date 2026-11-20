@@ -1,5 +1,6 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import AboutUs from "./components/AboutUs";
 import Services from "./components/Services";
 import InsightsDeck from "./components/InsightsDeck";
 import WhyUs from "./components/WhyUs";
@@ -10,7 +11,7 @@ import Footer from "./components/Footer";
 /**
  * Single-page marketing site.
  * Sections follow the requested order and every anchor target is marked
- * with a matching id (services, why-us, process, contact).
+ * with a matching id (about, services, why-us, process, contact).
  */
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
+        <AboutUs />
         <Services />
         <InsightsDeck />
         <WhyUs />

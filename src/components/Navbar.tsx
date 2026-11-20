@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 
 const NAV_LINKS = [
+  { label: "About Us", href: "#about" },
   { label: "Services", href: "#services" },
   { label: "Insights", href: "#insights" },
   { label: "Why Us", href: "#why-us" },
@@ -53,7 +54,7 @@ export default function Navbar() {
           </span>
         </a>
 
-        <ul className="hidden items-center gap-7 md:flex">
+        <ul className="hidden items-center gap-6 lg:flex">
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
               <a
@@ -68,7 +69,7 @@ export default function Navbar() {
 
         <a
           href="#contact"
-          className="btn-primary hidden py-2.5 md:inline-flex"
+          className="btn-primary hidden py-2.5 lg:inline-flex"
         >
           Get a Free Consultation
         </a>
@@ -79,14 +80,14 @@ export default function Navbar() {
           aria-expanded={isOpen}
           aria-controls="mobile-menu"
           aria-label={isOpen ? "Close menu" : "Open menu"}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-navy/15 text-navy transition-colors hover:bg-mist md:hidden"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-navy/15 text-navy transition-colors hover:bg-mist lg:hidden"
         >
           {isOpen ? <X className="h-5 w-5" aria-hidden="true" /> : <Menu className="h-5 w-5" aria-hidden="true" />}
         </button>
       </nav>
 
       {isOpen && (
-        <div id="mobile-menu" className="border-t border-navy/10 bg-white md:hidden">
+        <div id="mobile-menu" className="border-t border-navy/10 bg-white lg:hidden">
           <div className="container-page py-4">
             <ul className="flex flex-col gap-1">
               {NAV_LINKS.map((link) => (
