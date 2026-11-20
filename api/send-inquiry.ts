@@ -25,7 +25,19 @@ const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
 const requestLog = new Map<string, number[]>();
 
 const DEFAULT_NOTIFY_TO = "onlineateagles@gmail.com";
-const DEFAULT_FROM = "A&T Accounting <onboarding@resend.dev>";
+const DEFAULT_FROM = "onboarding@resend.dev";
+
+/**
+ * Resend shows whatever display name sits in the `from` string, so a stale name
+ * carried by the configured address (or the Resend account name) would surface
+ * in the recipient's inbox. Always present the firm as the sender and keep only
+ * the configured address.
+ */
+function withFirmSenderName(from: string): string {
+  const match = from.match(/<([^>]+)>/);
+  const address = (match ? match[1] : from).trim();
+  return `"${FIRM_NAME}" <${address}>`;
+}
 
 const FIRM_NAME = "A & T Eagles";
 const FIRM_PHONE = "+63 928 350 6526";
@@ -550,7 +562,7 @@ export default async function handler(
   }
 
   const notifyTo = process.env.NOTIFY_TO_EMAIL?.trim() || DEFAULT_NOTIFY_TO;
-  const from = process.env.FROM_EMAIL?.trim() || DEFAULT_FROM;
+  const from = withFirmSenderName(process.env.FROM_EMAIL?.trim() || DEFAULT_FROM);
   const payload = parsed.data;
   const resend = new Resend(apiKey);
   const submittedAt = manilaTimestamp();
