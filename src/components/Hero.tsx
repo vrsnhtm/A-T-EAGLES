@@ -7,9 +7,9 @@ const TRUST_BADGES = [
 ] as const;
 
 const HIGHLIGHTS = [
-  "Monthly, quarterly and annual BIR returns",
-  "SLSP and books reconciled before filing",
-  "A dedicated accountant for your business",
+  "Monthly, Quarterly and Annual BIR Returns",
+  "SLSP and Books Reconciled before Filing",
+  "A Dedicated Accountant for your Business",
 ] as const;
 
 export default function Hero() {
