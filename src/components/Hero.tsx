@@ -57,7 +57,7 @@ export default function Hero() {
                 className="absolute inset-x-0 bottom-1 z-0 h-2.5 rounded-sm bg-gold/40"
               />
             </span>
-            , SLSP and bookkeeping for Philippine businesses.
+            , and bookkeeping for Philippine businesses.
           </h1>
 
           <p className="mt-6 max-w-xl text-base leading-relaxed text-slate-600 sm:text-lg">
