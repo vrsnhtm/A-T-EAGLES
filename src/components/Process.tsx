@@ -58,10 +58,10 @@ export default function Process() {
           {STEPS.map(({ icon: Icon, title, description }, index) => (
             <li
               key={title}
-              className="relative flex flex-col rounded-xl border border-slate-200 bg-white p-6 shadow-card"
+              className="group relative flex flex-col rounded-xl border border-slate-200 bg-white p-6 shadow-card transition duration-200 hover:border-gold/50 hover:shadow-card-hover"
             >
               <div className="flex items-center justify-between">
-                <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-navy text-gold">
+                <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-navy/5 text-navy transition-colors group-hover:bg-navy-soft group-hover:text-white">
                   <Icon className="h-5 w-5" aria-hidden="true" />
                 </span>
                 <span className="text-3xl font-extrabold tracking-tight text-navy/10">
