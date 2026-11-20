@@ -3,7 +3,8 @@ import { Eye, HeartHandshake, ListChecks, Target, type LucideIcon } from "lucide
 type Pillar = {
   icon: LucideIcon;
   title: string;
-  body: string;
+  body?: string;
+  points?: readonly string[];
 };
 
 const PILLARS: readonly Pillar[] = [
@@ -19,142 +20,103 @@ const PILLARS: readonly Pillar[] = [
     body:
       "Our mission is to facilitate seamlessly efficient business operations for our clients through professional, trustworthy, and responsive consultancy services paying utmost attention to accuracy and compliance.",
   },
-];
-
-const OBJECTIVES: readonly string[] = [
-  "Improve the accuracy and reliability of financial reporting processes within the accounting function.",
-  "Make financial success accessible.",
-  "Build trust through transparency and personalized financial solutions.",
-  "Enhance financial performance and the organization's cash flow management.",
-  "Ensure robust adherence to regulatory and compliance standards within the accounting and business function.",
-];
-
-const VALUES: readonly string[] = [
-  "We are honest and passionate in our auditing, tax and consulting work as we seek our client's need for real change and success.",
-  "We have excellent ethical behavior and honesty in providing business services.",
-  "We provide quality and accurate results that are necessary in business improvement.",
-  "We are open to all of our clients' concerns and needs.",
+  {
+    icon: ListChecks,
+    title: "Our Business Objectives",
+    points: [
+      "Improve the accuracy and reliability of financial reporting processes within the accounting function.",
+      "Make financial success accessible.",
+      "Build trust through transparency and personalized financial solutions.",
+      "Enhance financial performance and the organization's cash flow management.",
+      "Ensure robust adherence to regulatory and compliance standards within the accounting and business function.",
+    ],
+  },
+  {
+    icon: HeartHandshake,
+    title: "Our Business Values",
+    points: [
+      "We are honest and passionate in our auditing, tax and consulting work as we seek our client's need for real change and success.",
+      "We have excellent ethical behavior and honesty in providing business services.",
+      "We provide quality and accurate results that are necessary in business improvement.",
+      "We are open to all of our clients' concerns and needs.",
+    ],
+  },
 ];
 
 /**
- * About Us: the whole story sits inside one navy panel with gold accents,
- * so the copy reads as white text on the brand background.
+ * About Us, built on the same card language as the Services grid:
+ * white cards, navy icon tile that fills in on hover, gold accent.
  */
 export default function AboutUs() {
   return (
     <section id="about" className="bg-white py-20">
       <div className="container-page">
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-navy via-navy-light to-navy-soft p-7 shadow-banner sm:p-10 lg:p-12">
-          {/* Decorative brand accents */}
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-gold/15 blur-3xl"
-          />
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-gold-dark via-gold to-gold-light"
-          />
+        <div className="max-w-2xl">
+          <p className="eyebrow">About us</p>
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-navy sm:text-4xl">
+            A&T Eagles Marketing and Consultancy Services OPC
+          </h2>
+          <p className="mt-4 text-base leading-relaxed text-slate-600">
+            We focus on what matters most to you and provide a service to meet and
+            consistently exceed your expectations — for individuals, SMEs and large
+            businesses across a wide range of industries and professions.
+          </p>
+        </div>
 
-          <div className="relative">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-gold">
-              About Us
-            </p>
-            <h2 className="mt-3 max-w-3xl text-2xl font-bold leading-snug text-white sm:text-3xl lg:text-4xl">
-              A&T Eagles Marketing and Consultancy Services OPC
-            </h2>
+        <div className="mt-10 max-w-3xl space-y-4 text-base leading-relaxed text-slate-600">
+          <p>
+            Our business is based in Malabon, Philippines and provides audit, tax,
+            business consulting and human resources services to a wide range of
+            clients. We are committed to providing the highest level of professional
+            and personalized services in a cost effective manner—from individual tax
+            planning services to complex corporate audits and consulting
+            engagements.
+          </p>
+          <p>
+            We pride ourselves on building long-term relationships with our clients.
+            This means regular contact. This is not once a year, but throughout the
+            year, so you can be confident about receiving the right advice and the
+            right service at the right time to help you reach your goals.
+          </p>
+        </div>
 
-            <div className="mt-6 max-w-3xl space-y-4 text-sm leading-relaxed text-slate-200 sm:text-base">
-              <p>
-                At A&T Eagles Marketing and Consultancy Services OPC, we focus on
-                what matters most to you and provide a service to meet and
-                consistently exceed your expectations. Our business is based in
-                Malabon, Philippines and provides audit, tax, business consulting
-                and human resources services to a wide range of clients including
-                individuals, SMEs and large businesses.
-              </p>
-              <p>
-                We serve a wide range of industries and professions. We are
-                committed to providing the highest level of professional and
-                personalized services in a cost effective manner—from individual
-                tax planning services to complex corporate audits and consulting
-                engagements.
-              </p>
-              <p>
-                We pride ourselves on building long-term relationships with our
-                clients. This means regular contact. This is not once a year, but
-                throughout the year, so you can be confident about receiving the
-                right advice and the right service at the right time to help you
-                reach your goals.
-              </p>
-            </div>
+        <div className="mt-12 grid gap-5 sm:grid-cols-2">
+          {PILLARS.map(({ icon: Icon, title, body, points }) => (
+            <article
+              key={title}
+              className="group flex flex-col rounded-xl border border-slate-200 bg-white p-6 shadow-card transition duration-200 hover:-translate-y-1 hover:border-gold/50 hover:shadow-card-hover"
+            >
+              <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-navy/5 text-navy transition-colors group-hover:bg-navy group-hover:text-gold">
+                <Icon className="h-5 w-5" aria-hidden="true" />
+              </span>
+              <h3 className="mt-5 text-base font-bold leading-snug text-navy">
+                {title}
+              </h3>
 
-            {/* Vision and Mission */}
-            <div className="mt-9 grid gap-5 md:grid-cols-2">
-              {PILLARS.map(({ icon: Icon, title, body }) => (
-                <div
-                  key={title}
-                  className="rounded-2xl border border-white/15 bg-white/[0.06] p-6 backdrop-blur-sm"
-                >
-                  <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-gold text-navy">
-                    <Icon className="h-5 w-5" aria-hidden="true" />
-                  </span>
-                  <h3 className="mt-4 text-lg font-bold text-gold">{title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-200">
-                    {body}
-                  </p>
-                </div>
-              ))}
-            </div>
+              {body && (
+                <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600">
+                  {body}
+                </p>
+              )}
 
-            {/* Objectives and Values */}
-            <div className="mt-5 grid gap-5 md:grid-cols-2">
-              <div className="rounded-2xl border border-white/15 bg-white/[0.06] p-6 backdrop-blur-sm">
-                <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-gold text-navy">
-                  <ListChecks className="h-5 w-5" aria-hidden="true" />
-                </span>
-                <h3 className="mt-4 text-lg font-bold text-gold">
-                  Our Business Objectives
-                </h3>
-                <ul className="mt-3 space-y-2.5">
-                  {OBJECTIVES.map((item) => (
+              {points && (
+                <ul className="mt-3 flex-1 space-y-2.5">
+                  {points.map((point) => (
                     <li
-                      key={item}
-                      className="flex items-start gap-2.5 text-sm leading-relaxed text-slate-200"
+                      key={point}
+                      className="flex items-start gap-2.5 text-sm leading-relaxed text-slate-600"
                     >
                       <span
                         aria-hidden="true"
                         className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold"
                       />
-                      {item}
+                      {point}
                     </li>
                   ))}
                 </ul>
-              </div>
-
-              <div className="rounded-2xl border border-white/15 bg-white/[0.06] p-6 backdrop-blur-sm">
-                <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-gold text-navy">
-                  <HeartHandshake className="h-5 w-5" aria-hidden="true" />
-                </span>
-                <h3 className="mt-4 text-lg font-bold text-gold">
-                  Our Business Values
-                </h3>
-                <ul className="mt-3 space-y-2.5">
-                  {VALUES.map((item) => (
-                    <li
-                      key={item}
-                      className="flex items-start gap-2.5 text-sm leading-relaxed text-slate-200"
-                    >
-                      <span
-                        aria-hidden="true"
-                        className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold"
-                      />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
+              )}
+            </article>
+          ))}
         </div>
       </div>
     </section>
