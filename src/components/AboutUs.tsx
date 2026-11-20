@@ -86,7 +86,7 @@ export default function AboutUs() {
               key={title}
               className="group flex flex-col rounded-xl border border-slate-200 bg-white p-6 shadow-card transition duration-200 hover:-translate-y-1 hover:border-gold/50 hover:shadow-card-hover"
             >
-              <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-navy/5 text-navy transition-colors group-hover:bg-navy group-hover:text-gold">
+              <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-navy/5 text-navy transition-colors group-hover:bg-navy-soft group-hover:text-white">
                 <Icon className="h-5 w-5" aria-hidden="true" />
               </span>
               <h3 className="mt-5 text-base font-bold leading-snug text-navy">

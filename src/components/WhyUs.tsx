@@ -81,9 +81,9 @@ export default function WhyUs() {
             {BENEFITS.map(({ icon: Icon, title, description }) => (
               <div
                 key={title}
-                className="rounded-xl border border-slate-200 bg-white p-5 transition duration-200 hover:border-gold/50 hover:shadow-card"
+                className="group rounded-xl border border-slate-200 bg-white p-5 transition duration-200 hover:border-gold/50 hover:shadow-card"
               >
-                <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-gold/15 text-gold-dark">
+                <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-navy/5 text-navy transition-colors group-hover:bg-navy-soft group-hover:text-white">
                   <Icon className="h-5 w-5" aria-hidden="true" />
                 </span>
                 <h3 className="mt-4 text-sm font-bold text-navy">{title}</h3>
