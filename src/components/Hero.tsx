@@ -51,7 +51,7 @@ export default function Hero() {
           <h1 className="mt-6 text-4xl font-extrabold leading-[1.1] tracking-tight text-navy sm:text-5xl">
             Hassle-Free{" "}
             <span className="relative whitespace-nowrap">
-              <span className="relative z-10">BIR tax Filing</span>
+              <span className="relative z-10">BIR Tax Filing</span>
               <span
                 aria-hidden="true"
                 className="absolute inset-x-0 bottom-1 z-0 h-2.5 rounded-sm bg-gold/40"
