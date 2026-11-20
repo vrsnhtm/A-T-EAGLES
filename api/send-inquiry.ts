@@ -25,6 +25,8 @@ const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
 const requestLog = new Map<string, number[]>();
 
 const DEFAULT_NOTIFY_TO = "onlineateagles@gmail.com";
+/** Optional form fields can be left blank; say so instead of printing nothing. */
+const BLANK_FIELD_PLACEHOLDER = "Not provided";
 const DEFAULT_FROM = "onboarding@resend.dev";
 
 /**
@@ -164,10 +166,14 @@ function buildInternalEmail(payload: InquiryPayload, submittedAt: string): strin
     ["Full Name / Authorized Representative", payload.fullName, false],
     ["Business Email Address", payload.email, false],
     ["Direct Phone / Viber / WhatsApp", payload.phone, false],
-    ["Fiscal Year-End / Target Filing Date", formatTargetDate(payload.targetDate), false],
+    [
+      "Fiscal Year-End / Target Filing Date",
+      formatTargetDate(payload.targetDate) || BLANK_FIELD_PLACEHOLDER,
+      false,
+    ],
     ["Accounting Service Needed", payload.service, false],
     ["Business Address / Tax Jurisdiction (RDO)", payload.businessAddress, false],
-    ["Business Details & Specific Needs", payload.details, true],
+    ["Business Details & Specific Needs", payload.details || BLANK_FIELD_PLACEHOLDER, true],
     ["Submitted", submittedAt, false],
   ];
 
@@ -244,7 +250,7 @@ function buildAutoReplyEmail(
 ): { html: string; text: string } {
   const firstName = firstNameOf(payload.fullName);
   const safeFirst = escapeHtml(firstName);
-  const targetDate = formatTargetDate(payload.targetDate);
+  const targetDate = formatTargetDate(payload.targetDate) || BLANK_FIELD_PLACEHOLDER;
   const ctaUrl = `mailto:${notifyTo}?subject=${encodeURIComponent(
     "Free Consultation Request",
   )}`;
@@ -274,7 +280,7 @@ function buildAutoReplyEmail(
     ["Fiscal year-end / target filing date", targetDate],
     ["Accounting service needed", payload.service],
     ["Business address / tax jurisdiction (RDO)", payload.businessAddress],
-    ["Business details & specific needs", payload.details],
+    ["Business details & specific needs", payload.details || BLANK_FIELD_PLACEHOLDER],
   ];
   const summaryRows = summaryItems.map(([label, value]) => summaryRow(label, value)).join("");
 
@@ -468,7 +474,7 @@ function buildAutoReplyEmail(
     `Fiscal year-end / target filing date: ${targetDate}`,
     `Accounting service needed: ${payload.service}`,
     `Business address / tax jurisdiction (RDO): ${payload.businessAddress}`,
-    `Business details & specific needs: ${payload.details}`,
+    `Business details & specific needs: ${payload.details || BLANK_FIELD_PLACEHOLDER}`,
     "",
     "What happens next:",
     "1. We review your details and confirm which filings are due.",

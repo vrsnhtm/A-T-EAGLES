@@ -383,7 +383,6 @@ export default function InquiryForm() {
                 <FieldShell
                   id="targetDate"
                   label="Fiscal Year-End / Target Filing Date"
-                  required
                   error={errors.targetDate}
                 >
                   <input
@@ -450,8 +449,7 @@ export default function InquiryForm() {
                 <FieldShell
                   id="details"
                   label="Business Details & Specific Needs"
-                  required
-                  hint="Minimum 10 characters."
+                  hint="Optional. Minimum 10 characters if you add one."
                   error={errors.details}
                   className="sm:col-span-2"
                 >

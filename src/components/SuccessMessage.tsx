@@ -41,6 +41,10 @@ export default function SuccessMessage({ fullName, onReset }: SuccessMessageProp
         </li>
       </ul>
 
+      <p className="mt-5 text-center text-sm font-semibold text-navy">
+        Check your Email or Spam Email
+      </p>
+
       <button type="button" onClick={onReset} className="btn-navy mt-6 w-full">
         Send another inquiry
         <ArrowRight className="h-4 w-4" aria-hidden="true" />

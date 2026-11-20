@@ -66,10 +66,14 @@ export const inquirySchema = z.object({
       "Use a PH mobile number, e.g. 09171234567 or +639171234567.",
     ),
   targetDate: z
-    .string({ required_error: "Please choose a fiscal year-end or target filing date." })
+    .string()
     .trim()
-    .min(1, "Please choose a fiscal year-end or target filing date.")
-    .refine(isValidIsoDate, "Please choose a valid date."),
+    .optional()
+    .transform((value) => value ?? "")
+    .refine(
+      (value) => value === "" || isValidIsoDate(value),
+      "Please choose a valid date.",
+    ),
   service: z.enum(serviceValues, {
     errorMap: () => ({ message: "Please select the accounting service you need." }),
   }),
@@ -79,10 +83,18 @@ export const inquirySchema = z.object({
     .min(4, "Please enter your business address or RDO.")
     .max(220, "Please keep this under 220 characters."),
   details: z
-    .string({ required_error: "Please describe your needs." })
+    .string()
     .trim()
-    .min(10, "Please share at least 10 characters so we can prepare.")
-    .max(2000, "Please keep your message under 2000 characters."),
+    .optional()
+    .transform((value) => value ?? "")
+    .refine(
+      (value) => value === "" || value.length >= 10,
+      "Please share at least 10 characters so we can prepare.",
+    )
+    .refine(
+      (value) => value.length <= 2000,
+      "Please keep your message under 2000 characters.",
+    ),
   consent: z
     .boolean({ required_error: "Please accept the data privacy consent." })
     .refine((value) => value === true, {
